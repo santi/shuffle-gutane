@@ -7,9 +7,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
+import Notifications from "@material-ui/icons/Notifications";
 import DateRange from "@material-ui/icons/DateRange";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
 import BugReport from "@material-ui/icons/BugReport";
@@ -31,10 +31,22 @@ import CardFooter from "components/Card/CardFooter.jsx";
 import { bugs, website, server } from "variables/general.jsx";
 
 import {
-  dailySalesChart,
+  dailySalesChart as dailySalesChart1,
   emailsSubscriptionChart,
   completedTasksChart
-} from "variables/charts.jsx";
+} from "variables/charts.1.jsx";
+
+import {
+  dailySalesChart as dailySalesChart2,
+} from "variables/charts.2.jsx";
+
+import {
+  dailySalesChart as dailySalesChart3,
+} from "variables/charts.3.jsx";
+
+import {
+  dailySalesChart as dailySalesChart4,
+} from "variables/charts.4.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
@@ -60,19 +72,15 @@ class Dashboard extends React.Component {
                 <CardIcon color="primary">
                   <Icon>content_copy</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Used Space</p>
+                <p className={classes.cardCategory}>Pending signatures</p>
                 <h3 className={classes.cardTitle}>
-                  49/50 <small>GB</small>
+                  3/217
                 </h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <Danger>
-                    <Warning />
-                  </Danger>
-                  <a href="#pablo" onClick={e => e.preventDefault()}>
-                    Get more space
-                  </a>
+                  <Notifications />
+                  Send notification
                 </div>
               </CardFooter>
             </Card>
@@ -135,19 +143,19 @@ class Dashboard extends React.Component {
               <CardHeader color="success">
                 <ChartistGraph
                   className="ct-chart"
-                  data={dailySalesChart.data}
+                  data={dailySalesChart1.data}
                   type="Line"
-                  options={dailySalesChart.options}
-                  listener={dailySalesChart.animation}
+                  options={dailySalesChart1.options}
+                  listener={dailySalesChart1.animation}
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Daily Sales</h4>
+                <h4 className={classes.cardTitle}>Partition 1</h4>
                 <p className={classes.cardCategory}>
                   <span className={classes.successText}>
-                    <ArrowUpward className={classes.upArrowCardCategory} /> 55%
+                    <ArrowDownward className={classes.upArrowCardCategory} /> 0.20%
                   </span>{" "}
-                  increase in today sales.
+                  decrease in interest.
                 </p>
               </CardBody>
               <CardFooter chart>
@@ -157,9 +165,93 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
+
           <GridItem xs={12} sm={12} md={4}>
             <Card chart>
               <CardHeader color="warning">
+                <ChartistGraph
+                  className="ct-chart"
+                  data={dailySalesChart2.data}
+                  type="Line"
+                  options={dailySalesChart2.options}
+                  listener={dailySalesChart2.animation}
+                />
+              </CardHeader>
+              <CardBody>
+                <h4 className={classes.cardTitle}>Partition 2</h4>
+                <p className={classes.cardCategory}>
+                  <span className={classes.successText}>
+                    <ArrowDownward className={classes.upArrowCardCategory} /> 0.09%
+                  </span>{" "}
+                  decrease in interest.
+                </p>
+              </CardBody>
+              <CardFooter chart>
+                <div className={classes.stats}>
+                  <AccessTime /> updated 20 minutes ago
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={4}>
+            <Card chart>
+              <CardHeader color="success">
+                <ChartistGraph
+                  className="ct-chart"
+                  data={dailySalesChart3.data}
+                  type="Line"
+                  options={dailySalesChart3.options}
+                  listener={dailySalesChart3.animation}
+                />
+              </CardHeader>
+              <CardBody>
+                <h4 className={classes.cardTitle}>Partition 3</h4>
+                <p className={classes.cardCategory}>
+                  <span className={classes.successText}>
+                    <ArrowDownward className={classes.upArrowCardCategory} /> 0.05%
+                  </span>{" "}
+                  decrease in interest.
+                </p>
+              </CardBody>
+              <CardFooter chart>
+                <div className={classes.stats}>
+                  <AccessTime /> updated 8 hours ago
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={4}>
+            <Card chart>
+              <CardHeader color="info">
+                <ChartistGraph
+                  className="ct-chart"
+                  data={dailySalesChart4.data}
+                  type="Line"
+                  options={dailySalesChart4.options}
+                  listener={dailySalesChart4.animation}
+                />
+              </CardHeader>
+              <CardBody>
+                <h4 className={classes.cardTitle}>Partition 4</h4>
+                <p className={classes.cardCategory}>
+                  <span className={classes.successText}>
+                    <ArrowDownward className={classes.upArrowCardCategory} /> 0.17%
+                  </span>{" "}
+                  decrease in interest.
+                </p>
+              </CardBody>
+              <CardFooter chart>
+                <div className={classes.stats}>
+                  <AccessTime /> updated 2 days ago
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={4}>
+            <Card chart>
+              <CardHeader color="primary">
                 <ChartistGraph
                   className="ct-chart"
                   data={emailsSubscriptionChart.data}
@@ -170,7 +262,7 @@ class Dashboard extends React.Component {
                 />
               </CardHeader>
               <CardBody>
-                <h4 className={classes.cardTitle}>Email Subscriptions</h4>
+                <h4 className={classes.cardTitle}>User increase</h4>
                 <p className={classes.cardCategory}>
                   Last Campaign Performance
                 </p>
@@ -204,71 +296,6 @@ class Dashboard extends React.Component {
                   <AccessTime /> campaign sent 2 days ago
                 </div>
               </CardFooter>
-            </Card>
-          </GridItem>
-        </GridContainer>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
-            <CustomTabs
-              title="Tasks:"
-              headerColor="primary"
-              tabs={[
-                {
-                  tabName: "Bugs",
-                  tabIcon: BugReport,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
-                    />
-                  )
-                },
-                {
-                  tabName: "Website",
-                  tabIcon: Code,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
-                  )
-                },
-                {
-                  tabName: "Server",
-                  tabIcon: Cloud,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
-                    />
-                  )
-                }
-              ]}
-            />
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <Card>
-              <CardHeader color="warning">
-                <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
-                <p className={classes.cardCategoryWhite}>
-                  New employees on 15th September, 2016
-                </p>
-              </CardHeader>
-              <CardBody>
-                <Table
-                  tableHeaderColor="warning"
-                  tableHead={["ID", "Name", "Salary", "Country"]}
-                  tableData={[
-                    ["1", "Dakota Rice", "$36,738", "Niger"],
-                    ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                    ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                    ["4", "Philip Chaney", "$38,735", "Korea, South"]
-                  ]}
-                />
-              </CardBody>
             </Card>
           </GridItem>
         </GridContainer>
