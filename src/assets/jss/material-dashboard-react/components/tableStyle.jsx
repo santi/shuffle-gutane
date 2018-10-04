@@ -50,6 +50,13 @@ const tableStyle = theme => ({
     padding: "12px 8px",
     verticalAlign: "middle"
   },
+  tableFooter: {
+    ...defaultFont,
+    lineHeight: "1.42857143",
+    padding: "12px 8px",
+    verticalAlign: "middle",
+    fontWeight: "bold",
+  },
   tableResponsive: {
     width: "100%",
     marginTop: theme.spacing.unit * 3,

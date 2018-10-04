@@ -9,10 +9,68 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 
+import data from "assets/data/fintech";
+
+
+const numberWithSpaces = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+
+const mapToFields = (person) => {
+  return {
+    age: person.Alder,
+    income: numberWithSpaces(person.Lønn),
+    loan: numberWithSpaces(person.Lån),
+    capital: numberWithSpaces(person.Aksjekapital + person.Fondkapital + person["Verdi på bolig"]),
+  }
+} 
+
+const mapToTable = ({age, income, loan, capital}) => [
+  `${age}`,
+  `${income} NOK`,
+  `${loan} NOK`,
+  `${capital} NOK`,
+]
+
+const bolk1 = data.filter(person => person.Bolk === 1).map(mapToFields).map(mapToTable)
+
+const bolk2 = data.filter(person => person.Bolk === 2).map(mapToFields).map(mapToTable)
+const bolk3 = data.filter(person => person.Bolk === 3).map(mapToFields).map(mapToTable)
+const bolk4 = data.filter(person => person.Bolk === 4).map(mapToFields).map(mapToTable)
+
+bolk1.push([
+  "39",
+  "734 375 NOK",
+  "2 091 250 NOK",
+  "4 238 750 NOK",
+])
+
+bolk2.push([
+  "31.5",
+  "785 714 NOK",
+  "3 540 000 NOK",
+  "4 885 714 NOK",
+])
+
+
+bolk3.push([
+  "45.1",
+  "690 000 NOK",
+  "2 858 571 NOK",
+  "5 857 142 NOK",
+])
+
+
+bolk4.push([
+  "31,8",
+  "625 714 NOK",
+  "2 508 571 NOK",
+  "4 330 000 NOK",
+])
+
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
-      color: "rgba(255,255,255,.62)",
+      color: "rgba(255,255,255,.95)",
       margin: "0",
       fontSize: "14px",
       marginTop: "0",
@@ -39,68 +97,76 @@ const styles = {
   }
 };
 
+
+
 function TableList(props) {
   const { classes } = props;
   return (
     <GridContainer>
+    <GridItem xs={12} sm={12} md={12}>
+      <Card>
+        <CardHeader color="primary">
+          <h4 className={classes.cardTitleWhite}>Partition 1</h4>
+          <p className={classes.cardCategoryWhite}>
+            Loan less than 3.5 times income, net capital less than 50% of loan.
+          </p>
+        </CardHeader>
+        <CardBody>
+          <Table
+            tableHeaderColor="primary"
+            tableHead={["Age", "Income", "Loan", "Capital"]}
+            tableData={bolk1}
+          />
+        </CardBody>
+      </Card>
+    </GridItem>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+            <h4 className={classes.cardTitleWhite}>Partition 2</h4>
             <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
+              Age less than 40 years, income more than 700 000 NOK
             </p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-              ]}
+              tableHead={["Age", "Income", "Loan", "Capital"]}
+              tableData={bolk2}
             />
           </CardBody>
         </Card>
       </GridItem>
       <GridItem xs={12} sm={12} md={12}>
-        <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>
-              Table on Plain Background
-            </h4>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Partition 3</h4>
             <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
+              Age more than 40 years, income more than 70% of loan.
             </p>
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park"
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-              ]}
+              tableHead={["Age", "Income", "Loan", "Capital"]}
+              tableData={bolk3}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12}>
+        <Card>
+          <CardHeader color="primary">
+            <h4 className={classes.cardTitleWhite}>Partition 4</h4>
+            <p className={classes.cardCategoryWhite}>
+              Aksjekapital over 150k, formue i bolig større enn 2 ganger aksjekapitalen.
+            </p>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["Age", "Income", "Loan", "Capital"]}
+              tableData={bolk4}
             />
           </CardBody>
         </Card>

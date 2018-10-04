@@ -1,8 +1,9 @@
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
-import Person from "@material-ui/icons/Person";
+import AssignmentInd from "@material-ui/icons/AssignmentInd";
+import AccountBalance from "@material-ui/icons/AccountBalance";
 // import ContentPaste from "@material-ui/icons/ContentPaste";
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import Settings from "@material-ui/icons/Settings";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import Notifications from "@material-ui/icons/Notifications";
 // core components/views
@@ -17,35 +18,28 @@ const dashboardRoutes = [
   {
     path: "/dashboard",
     sidebarName: "Dashboard",
-    navbarName: "Material Dashboard",
+    navbarName: "Dashboard",
     icon: Dashboard,
     component: DashboardPage
   },
   {
     path: "/user",
-    sidebarName: "User Profile",
-    navbarName: "Profile",
-    icon: Person,
+    sidebarName: "Banks",
+    navbarName: "Banks",
+    icon: AccountBalance,
     component: UserProfile
   },
   {
     path: "/table",
-    sidebarName: "Table List",
-    navbarName: "Table List",
-    icon: "content_paste",
+    sidebarName: "Partitions",
+    navbarName: "Partitions",
+    icon: AssignmentInd,
     component: TableList
   },
   {
-    path: "/typography",
-    sidebarName: "Typography",
-    navbarName: "Typography",
-    icon: LibraryBooks,
-    component: Typography
-  },
-  {
     path: "/icons",
-    sidebarName: "Icons",
-    navbarName: "Icons",
+    sidebarName: "Insights",
+    navbarName: "Insights",
     icon: BubbleChart,
     component: Icons
   },
@@ -55,6 +49,13 @@ const dashboardRoutes = [
     navbarName: "Notifications",
     icon: Notifications,
     component: NotificationsPage
+  },
+  {
+    path: "/typography",
+    sidebarName: "Settings",
+    navbarName: "Settings",
+    icon: Settings,
+    component: Typography
   },
   { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];

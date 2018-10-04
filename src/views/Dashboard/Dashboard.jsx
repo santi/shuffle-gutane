@@ -9,8 +9,6 @@ import Icon from "@material-ui/core/Icon";
 import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
 import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Accessibility from "@material-ui/icons/Accessibility";
@@ -58,8 +56,8 @@ class Dashboard extends React.Component {
         <GridContainer>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
-              <CardHeader color="warning" stats icon>
-                <CardIcon color="warning">
+              <CardHeader color="primary" stats icon>
+                <CardIcon color="primary">
                   <Icon>content_copy</Icon>
                 </CardIcon>
                 <p className={classes.cardCategory}>Used Space</p>
@@ -86,46 +84,46 @@ class Dashboard extends React.Component {
                   <Store />
                 </CardIcon>
                 <p className={classes.cardCategory}>Revenue</p>
-                <h3 className={classes.cardTitle}>$34,245</h3>
+                <h3 className={classes.cardTitle}>108 245 NOK</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <DateRange />
-                  Last 24 Hours
+                  Last week
                 </div>
               </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
-              <CardHeader color="danger" stats icon>
-                <CardIcon color="danger">
-                  <Icon>info_outline</Icon>
+              <CardHeader color="warning" stats icon>
+                <CardIcon color="warning">
+                  <Accessibility />
                 </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
+                <p className={classes.cardCategory}>Total Users</p>
+                <h3 className={classes.cardTitle}>10 567</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <LocalOffer />
-                  Tracked from Github
+                  <DateRange />
+                  All time
                 </div>
               </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
-              <CardHeader color="info" stats icon>
-                <CardIcon color="info">
-                  <Accessibility />
+              <CardHeader color="success" stats icon>
+                <CardIcon color="success">
+                  <Icon>trending_up</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
+                <p className={classes.cardCategory}>New Users</p>
                 <h3 className={classes.cardTitle}>+245</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                  <Update />
-                  Just Updated
+                  <DateRange />
+                  Last week
                 </div>
               </CardFooter>
             </Card>

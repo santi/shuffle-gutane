@@ -33,7 +33,20 @@ function CustomTable({ ...props }) {
         ) : null}
         <TableBody>
           {tableData.map((prop, key) => {
-            return (
+            if(key === tableData.length - 1) {
+              return (
+                <TableRow key={key}>
+                  {prop.map((prop, key) => {
+                    return (
+                      <TableCell className={classes.tableFooter} key={key}>
+                        {prop}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              )
+            } else {
+              return (
               <TableRow key={key}>
                 {prop.map((prop, key) => {
                   return (
@@ -44,6 +57,7 @@ function CustomTable({ ...props }) {
                 })}
               </TableRow>
             );
+            }
           })}
         </TableBody>
       </Table>
