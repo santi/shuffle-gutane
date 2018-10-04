@@ -48,7 +48,7 @@ const sidebarStyle = theme => ({
   },
   logo: {
     position: "relative",
-    padding: "15px 15px",
+    padding: "40px 15px",
     zIndex: "4",
     "&:after": {
       content: '""',
@@ -61,30 +61,14 @@ const sidebarStyle = theme => ({
       backgroundColor: "rgba(180, 180, 180, 0.3)"
     }
   },
-  logoLink: {
-    ...defaultFont,
-    textTransform: "uppercase",
-    padding: "5px 0",
-    display: "block",
-    fontSize: "18px",
-    textAlign: "left",
-    fontWeight: "400",
-    lineHeight: "30px",
-    textDecoration: "none",
-    backgroundColor: "transparent",
-    "&,&:hover": {
-      color: "#FFFFFF"
-    }
-  },
   logoImage: {
-    width: "30px",
     display: "inline-block",
-    maxHeight: "30px",
+    maxHeight: "80px",
     marginLeft: "10px",
     marginRight: "15px"
   },
   img: {
-    width: "35px",
+    width: "calc(100% - 30px - 15px)",
     top: "22px",
     position: "absolute",
     verticalAlign: "middle",
